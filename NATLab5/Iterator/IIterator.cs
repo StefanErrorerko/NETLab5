@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NETLab5.Iterator
 {
-    abstract class IIterator : IEnumerator
+    abstract class Iterator : IEnumerator
     {
         object IEnumerator.Current => Current();
 
