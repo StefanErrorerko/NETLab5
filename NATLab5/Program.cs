@@ -2,7 +2,7 @@
 using NETLab5.Strategy;
 using NETLab5.Sort;
 
-namespace RefactoringGuru.DesignPatterns.Iterator.Conceptual
+namespace NETLab5
 {
     class Program
     {
