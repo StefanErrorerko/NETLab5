@@ -2,7 +2,7 @@
 
 namespace NETLab5.Iterator
 {
-    class CollectionIterator : IIterator
+    class CollectionIterator : Iterator
     {
         private DoubleCollection _collection;
         private int _state = -1;
