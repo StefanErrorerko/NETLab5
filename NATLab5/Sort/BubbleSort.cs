@@ -7,9 +7,9 @@ namespace NETLab5.Sort
         public DoubleCollection Sort(DoubleCollection data)
         {
             var len = data.Count();
-            for (var i = 1; i < data.Count(); i++)
+            for (var i = 1; i < len; i++)
             {
-                for (var j = 0; j < data.Count() - i; j++)
+                for (var j = 0; j < len - i; j++)
                 {
                     if (data[j] > data[j + 1])
                     {
