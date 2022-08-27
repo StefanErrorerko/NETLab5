@@ -10,27 +10,37 @@ namespace NETLab5
         {
             try
             {
+                // var data
                 DoubleCollection data = new DoubleCollection();
                 var list = new List<double> { 0.56, 54.7, 13, -1567, 4.6, -3, 745, 11, 0, 1 };
+
+                //brackets {} after foreach also part of code-style
                 foreach(var item in list) data.Add(item);
+
                 var analyse = new AnalyseSort();
                 Console.WriteLine("Маємо вибiрку:");
+
                 foreach (var item in data) Console.Write(item + " ");
 
+                // var. and dont name variables like 'flag', it should be smth like 'isOperationCorrect'
                 bool flag = false;
                 while (!flag)
                 {
+                    // string @
                     Console.WriteLine("\nОберiть тип алгоритму, за яким сортуватиметься масив: " +
                     "\n1. Bubble Sort натиснiть 1" +
                     "\n2. Insertion Sort натиснiть 2" +
                     "\n3. Merge Sort, натиснiть 3\n");
+
+                    //var
                     int variant = Convert.ToInt32(Console.ReadLine());
+
                     flag = true;
                     switch (variant)
                     {
+                        // you can pass new AnalyseSort() as a parameter in each case so 'analyse' var not needed
                         case 1:
                             DoSort(analyse, data, new BubbleSort());
-                            
                             break;
                         case 2:
                             DoSort(analyse, data, new InsertionSort());
@@ -43,6 +53,11 @@ namespace NETLab5
                             flag = false;
                             break;
                     }
+
+                    /*if (!isOperationCorrect)
+                    {
+                        continue;
+                    }*/
                     if (flag)
                     {
                         string? choice;
@@ -50,7 +65,7 @@ namespace NETLab5
                             "\nЯкщо хочете просортувати у протилежному порядку: R. " +
                             "\nЯкщо нi - будь-що iнше");
                         choice = Console.ReadLine();
-                        if(choice == "Y") flag = false;
+                        if(choice == "Y") flag = false; //same brackets {}
                         if (choice == "R")
                         {
                             data.Reverse();
@@ -68,6 +83,7 @@ namespace NETLab5
             }
         }
 
+        //sortType
          private static void DoSort(AnalyseSort analyse, DoubleCollection data, ISort sorttype)
             {
                 analyse.SetSort(sorttype);
