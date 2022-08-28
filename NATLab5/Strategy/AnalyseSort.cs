@@ -8,9 +8,10 @@ namespace NETLab5.Strategy
     {
 
         private ISort _sorttype; // _sortType
-        private TimeSpan _elapsed;
         private double _max;
         private double _min;
+
+        public TimeSpan Elapsed { get; private set; }
 
         public AnalyseSort()
         {
@@ -39,7 +40,7 @@ namespace NETLab5.Strategy
                 var result = _sorttype.Sort(data);
                 stopwatch.Stop();
 
-                _elapsed = stopwatch.Elapsed;
+                Elapsed = stopwatch.Elapsed;
                 _min = result[0];
                 _max = result[result.Count() - 1];
 
@@ -56,11 +57,6 @@ namespace NETLab5.Strategy
             return this._sorttype.Sort(data);
         }
 
-        // it is not needed. It can be - public TimeSpan Elapsed { get; private set; }
-        public TimeSpan Elapsed
-        {
-            get => _elapsed;
-        }
 
         // same
         public double Min

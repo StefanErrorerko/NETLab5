@@ -10,8 +10,8 @@ namespace NETLab5.Iterator
 
         public CollectionIterator(DoubleCollection collection, bool reverse = false)
         {
-            this._collection = collection; // this redundant
-            this._reverse = reverse; // this redundant
+            _collection = collection; 
+            _reverse = reverse; 
 
             if (reverse)
             {
@@ -21,7 +21,7 @@ namespace NETLab5.Iterator
 
         public override object Current()
         {
-            return this._collection.getCollection()[_state]; // this redundant
+            return _collection.getCollection()[_state]; // this redundant
         }
 
         public override int Key()
@@ -32,22 +32,19 @@ namespace NETLab5.Iterator
         public override bool MoveNext()
         {
             // var
-            int newstate = this._state + (this._reverse ? -1 : 1); // this redundant
+            int newstate = _state + (this._reverse ? -1 : 1); 
 
-            if (newstate >= 0 && newstate < this._collection.Count()) // this redundant
+            if (newstate >= 0 && newstate < _collection.Count()) 
             {
-                this._state = newstate; // this redundant
+                _state = newstate;
                 return true;
             }
-            else // else redundant
-            {
-                return false;
-            }
+            return false;
         }
 
         public override void Reset()
         {
-            this._state = this._reverse ? this._collection.Count() - 1 : 0; // this redundant
+            _state = _reverse ? _collection.Count() - 1 : 0; 
         }
 
         

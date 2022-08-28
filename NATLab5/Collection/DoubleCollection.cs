@@ -22,16 +22,12 @@ namespace NETLab5.Collection
             {
                 return _collection[position];
             }
-            // set => _collection[position] = value;
-            set
-            {
-                _collection[position] = value;
-            }
+            set => _collection[position] = value;
         }
 
         public override void Add(double value)
         {
-            this._collection.Add(value); // this redundant
+            _collection.Add(value); 
         }
 
         public override IEnumerator GetEnumerator()

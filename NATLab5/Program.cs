@@ -17,7 +17,6 @@ namespace NETLab5
                 //brackets {} after foreach also part of code-style
                 foreach(var item in list) data.Add(item);
 
-                var analyse = new AnalyseSort();
                 Console.WriteLine("Маємо вибiрку:");
 
                 foreach (var item in data) Console.Write(item + " ");
@@ -40,13 +39,13 @@ namespace NETLab5
                     {
                         // you can pass new AnalyseSort() as a parameter in each case so 'analyse' var not needed
                         case 1:
-                            DoSort(analyse, data, new BubbleSort());
+                            DoSort(new AnalyseSort(), data, new BubbleSort());
                             break;
                         case 2:
-                            DoSort(analyse, data, new InsertionSort());
+                            DoSort(new AnalyseSort(), data, new InsertionSort());
                             break;
                         case 3:
-                            DoSort(analyse, data, new MergeSort());
+                            DoSort(new AnalyseSort(), data, new MergeSort());
                             break;
                         default:
                             Console.WriteLine("Невiрне значення");
@@ -54,25 +53,23 @@ namespace NETLab5
                             break;
                     }
 
-                    /*if (!isOperationCorrect)
+                    if (!flag)
                     {
                         continue;
-                    }*/
-                    if (flag)
-                    {
-                        string? choice;
-                        Console.WriteLine("Якщо хочете просортувати масив ще раз, уведiть Y. " +
-                            "\nЯкщо хочете просортувати у протилежному порядку: R. " +
-                            "\nЯкщо нi - будь-що iнше");
-                        choice = Console.ReadLine();
-                        if(choice == "Y") flag = false; //same brackets {}
-                        if (choice == "R")
-                        {
-                            data.Reverse();
-                            flag = false;
-                        }
-
                     }
+
+                    string? choice;
+                    Console.WriteLine($"Якщо хочете просортувати масив ще раз, уведiть Y." +
+                        "\nЯкщо хочете просортувати у протилежному порядку: R. " +
+                        "\nЯкщо нi - будь-що iнше");
+                    choice = Console.ReadLine();
+                    if(choice == "Y") flag = false; //same brackets {}
+                    if (choice == "R")
+                    {
+                        data.Reverse();
+                        flag = false;
+                    }
+
                 }
             }
             catch (Exception ex)
