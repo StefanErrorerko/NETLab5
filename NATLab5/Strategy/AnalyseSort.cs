@@ -47,7 +47,7 @@ namespace NETLab5.Strategy
             }
             else
             {
-                throw new NullReferenceException("Unchosen sort type");
+                throw new ArgumentNullException("Unchosen sort type");
             }
         }
 

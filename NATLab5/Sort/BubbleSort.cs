@@ -20,7 +20,6 @@ namespace NETLab5.Sort
                     }
                 }
             }
-
             return data;
         }
 

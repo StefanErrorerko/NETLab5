@@ -74,8 +74,6 @@ namespace NETLab5
 
                     }
                 }
-                
-
             }
             catch (Exception ex)
             {
