@@ -7,67 +7,45 @@ namespace NETLab5.Strategy
     class AnalyseSort
     {
 
-        private ISort _sorttype; // _sortType
-        private double _max;
-        private double _min;
+        private ISort _sortType;
 
+        public double Min { get; private set; }
+        public double Max { get; private set; }
         public TimeSpan Elapsed { get; private set; }
 
         public AnalyseSort()
         {
-            //default type
-            _sorttype = new BubbleSort();
+            _sortType = new BubbleSort();
         }
 
-        public AnalyseSort(ISort _sorttype) // sortType
+        public AnalyseSort(ISort sortType)
         {
-            this._sorttype = _sorttype; // this redundant
+            _sortType = sortType; 
         }
 
-        public void SetSort(ISort _sorttype) // sortType
+        public void SetSort(ISort sortType) 
         {
-            this._sorttype = _sorttype;  // this redundant
+            _sortType = sortType;
         }
 
         public void SortAndShow(DoubleCollection data)
         {
-            if (_sorttype != null) // you have initializing of sortType in each constructor, it can not be null
-            {
-                //var
-                Stopwatch stopwatch = new Stopwatch();
+            var stopwatch = new Stopwatch();
 
-                stopwatch.Start();
-                var result = _sorttype.Sort(data);
-                stopwatch.Stop();
+            stopwatch.Start();
+            var result = _sortType.Sort(data);
+            stopwatch.Stop();
 
-                Elapsed = stopwatch.Elapsed;
-                _min = result[0];
-                _max = result[result.Count() - 1];
+            Elapsed = stopwatch.Elapsed;
+            Min = result[0];
+            Max = result[result.Count() - 1];
 
-                ShowArray(result);
-            }
-            else
-            {
-                throw new ArgumentNullException("Unchosen sort type");
-            }
+            ShowArray(result);
         }
 
         public DoubleCollection SortAndReturn(DoubleCollection data)
         {
-            return this._sorttype.Sort(data);
-        }
-
-
-        // same
-        public double Min
-        {
-            get => _min;
-        }
-
-        // same
-        public double Max
-        {
-            get => _max;
+            return _sortType.Sort(data);
         }
         public void ShowArray(DoubleCollection data)
         {

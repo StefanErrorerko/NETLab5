@@ -10,34 +10,34 @@ namespace NETLab5
         {
             try
             {
-                // var data
-                DoubleCollection data = new DoubleCollection();
+                var data = new DoubleCollection();
                 var list = new List<double> { 0.56, 54.7, 13, -1567, 4.6, -3, 745, 11, 0, 1 };
 
-                //brackets {} after foreach also part of code-style
-                foreach(var item in list) data.Add(item);
+                foreach (var item in list)
+                {
+                    data.Add(item);
+                }
 
                 Console.WriteLine("Маємо вибiрку:");
 
-                foreach (var item in data) Console.Write(item + " ");
-
-                // var. and dont name variables like 'flag', it should be smth like 'isOperationCorrect'
-                bool flag = false;
-                while (!flag)
+                foreach (var item in data)
                 {
-                    // string @
+                    Console.Write(item + " ");
+                }
+
+                var isSortElse = false;
+                while (!isSortElse)
+                {
                     Console.WriteLine("\nОберiть тип алгоритму, за яким сортуватиметься масив: " +
                     "\n1. Bubble Sort натиснiть 1" +
                     "\n2. Insertion Sort натиснiть 2" +
                     "\n3. Merge Sort, натиснiть 3\n");
 
-                    //var
-                    int variant = Convert.ToInt32(Console.ReadLine());
+                    var variant = Convert.ToInt32(Console.ReadLine());
 
-                    flag = true;
+                    isSortElse = true;
                     switch (variant)
                     {
-                        // you can pass new AnalyseSort() as a parameter in each case so 'analyse' var not needed
                         case 1:
                             DoSort(new AnalyseSort(), data, new BubbleSort());
                             break;
@@ -49,11 +49,11 @@ namespace NETLab5
                             break;
                         default:
                             Console.WriteLine("Невiрне значення");
-                            flag = false;
+                            isSortElse = false;
                             break;
                     }
 
-                    if (!flag)
+                    if (!isSortElse)
                     {
                         continue;
                     }
@@ -63,13 +63,15 @@ namespace NETLab5
                         "\nЯкщо хочете просортувати у протилежному порядку: R. " +
                         "\nЯкщо нi - будь-що iнше");
                     choice = Console.ReadLine();
-                    if(choice == "Y") flag = false; //same brackets {}
+                    if (choice == "Y")
+                    {
+                        isSortElse = false;
+                    }
                     if (choice == "R")
                     {
                         data.Reverse();
-                        flag = false;
+                        isSortElse = false;
                     }
-
                 }
             }
             catch (Exception ex)
@@ -78,14 +80,13 @@ namespace NETLab5
             }
         }
 
-        //sortType
-         private static void DoSort(AnalyseSort analyse, DoubleCollection data, ISort sorttype)
-            {
-                analyse.SetSort(sorttype);
-                analyse.SortAndShow(data);
-                Console.WriteLine($"Вiдсортовано за {analyse.Elapsed} сек");
-                Console.WriteLine($"Мiнiмальний елемент: {analyse.Min}. " +
-                    $"Максимальний елемент: {analyse.Max}");
+         private static void DoSort(AnalyseSort analyse, DoubleCollection data, ISort sortType)
+         {
+             analyse.SetSort(sortType);
+             analyse.SortAndShow(data);
+             Console.WriteLine($"Вiдсортовано за {analyse.Elapsed} сек");
+             Console.WriteLine($"Мiнiмальний елемент: {analyse.Min}. " +
+                 $"Максимальний елемент: {analyse.Max}");
         }
     }
 }

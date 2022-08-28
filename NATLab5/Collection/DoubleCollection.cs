@@ -5,16 +5,14 @@ namespace NETLab5.Collection
 {
     public class DoubleCollection : IterableCollection
     {
-        List<double> _collection = new List<double>();
-
-        bool _reverse = false; // private and 'false' redundant
+        private List<double> _collection = new List<double>();
+        private bool _reverse; 
 
         public override void Reverse()
         {
             _reverse = !_reverse;
         }
-
-        public List<double> getCollection() => _collection; // rename to GetCollection
+        public List<double> GetCollection() => _collection; 
 
         public double this[int position]
         {
