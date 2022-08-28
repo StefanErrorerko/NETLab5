@@ -12,6 +12,7 @@ namespace NETLab5.Sort
                 var j = i;
                 while ((j > 1) && (data[j - 1] > key))
                 {
+                    //you can swap var like - (data[j], data[j + 1]) = (data[j + 1], data[j]);
                     var temp = data[j - 1];
                     data[j - 1] = data[j];
                     data[j] = temp;

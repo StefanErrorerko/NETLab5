@@ -7,7 +7,7 @@ namespace NETLab5.Strategy
     class AnalyseSort
     {
 
-        private ISort _sorttype;
+        private ISort _sorttype; // _sortType
         private TimeSpan _elapsed;
         private double _max;
         private double _min;
@@ -18,21 +18,23 @@ namespace NETLab5.Strategy
             _sorttype = new BubbleSort();
         }
 
-        public AnalyseSort(ISort _sorttype)
+        public AnalyseSort(ISort _sorttype) // sortType
         {
-            this._sorttype = _sorttype;
+            this._sorttype = _sorttype; // this redundant
         }
 
-        public void SetSort(ISort _sorttype)
+        public void SetSort(ISort _sorttype) // sortType
         {
-            this._sorttype = _sorttype;
+            this._sorttype = _sorttype;  // this redundant
         }
 
         public void SortAndShow(DoubleCollection data)
         {
-            if (_sorttype != null)
+            if (_sorttype != null) // you have initializing of sortType in each constructor, it can not be null
             {
+                //var
                 Stopwatch stopwatch = new Stopwatch();
+
                 stopwatch.Start();
                 var result = _sorttype.Sort(data);
                 stopwatch.Stop();
@@ -41,7 +43,7 @@ namespace NETLab5.Strategy
                 _min = result[0];
                 _max = result[result.Count() - 1];
 
-                ShowArray(result);                    
+                ShowArray(result);
             }
             else
             {
@@ -54,14 +56,19 @@ namespace NETLab5.Strategy
             return this._sorttype.Sort(data);
         }
 
+        // it is not needed. It can be - public TimeSpan Elapsed { get; private set; }
         public TimeSpan Elapsed
         {
             get => _elapsed;
         }
+
+        // same
         public double Min
         {
             get => _min;
         }
+
+        // same
         public double Max
         {
             get => _max;

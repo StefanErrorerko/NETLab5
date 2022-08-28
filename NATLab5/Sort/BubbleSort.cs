@@ -13,6 +13,7 @@ namespace NETLab5.Sort
                 {
                     if (data[j] > data[j + 1])
                     {
+                        //you can swap var like - (data[j], data[j + 1]) = (data[j + 1], data[j]);
                         var temp = data[j];
                         data[j] = data[j + 1];
                         data[j + 1] = temp;

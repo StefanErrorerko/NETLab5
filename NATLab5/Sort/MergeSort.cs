@@ -52,6 +52,7 @@ namespace NETLab5.Sort
         //сортування злиттям
         public DoubleCollection Sort(DoubleCollection data, int lowIndex, int highIndex)
         {
+            // invert if
             if (lowIndex < highIndex)
             {
                 var middleIndex = (lowIndex + highIndex) / 2;

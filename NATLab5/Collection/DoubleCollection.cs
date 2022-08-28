@@ -7,14 +7,14 @@ namespace NETLab5.Collection
     {
         List<double> _collection = new List<double>();
 
-        bool _reverse = false;
+        bool _reverse = false; // private and 'false' redundant
 
         public override void Reverse()
         {
             _reverse = !_reverse;
         }
 
-        public List<double> getCollection() => _collection;
+        public List<double> getCollection() => _collection; // rename to GetCollection
 
         public double this[int position]
         {
@@ -22,6 +22,7 @@ namespace NETLab5.Collection
             {
                 return _collection[position];
             }
+            // set => _collection[position] = value;
             set
             {
                 _collection[position] = value;
@@ -30,7 +31,7 @@ namespace NETLab5.Collection
 
         public override void Add(double value)
         {
-            this._collection.Add(value);
+            this._collection.Add(value); // this redundant
         }
 
         public override IEnumerator GetEnumerator()
