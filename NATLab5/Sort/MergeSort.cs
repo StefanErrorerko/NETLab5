@@ -8,7 +8,7 @@ namespace NETLab5.Sort
         {
             return Sort(data, 0, data.Count() - 1);
         }
-        void Merge(DoubleCollection data, int lowIndex, int middleIndex, int highIndex)
+        private void Merge(DoubleCollection data, int lowIndex, int middleIndex, int highIndex)
         {
             var left = lowIndex;
             var right = middleIndex + 1;

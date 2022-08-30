@@ -1,6 +1,6 @@
-﻿using System.Diagnostics;
-using NETLab5.Sort;
+﻿using NETLab5.Sort;
 using NETLab5.Collection;
+using System.Diagnostics;
 
 namespace NETLab5.Strategy
 {
