@@ -1,3 +1,5 @@
+Lab4 | Design Patterns (поведінкові) | Strategy + Iterator
+
 Музика Стефан
 ІС-02
 11-й варіант
